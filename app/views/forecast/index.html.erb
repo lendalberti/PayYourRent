@@ -1,0 +1,73 @@
+<script type="text/javascript">
+
+  $(document).ready(function(){
+
+    $('#forecast_table').DataTable({
+      "order": [[ 0, "desc" ]]
+    });
+
+    $('#get_zip').on('click', function() {
+      var zipCode = $('#zipcode').val();
+
+      $.ajax({
+        url: "<%= api_index_url %>",
+        type: 'POST',
+        dataType: 'json',
+        data: { zip: zipCode },
+        success: function(result) { 
+          console.log("status code: " + result.status_code);
+
+          if ( result.status_code == 200 ) {
+            location.reload();
+          }
+          else {
+            $('#err_msg').text("* Error: " + result.message);
+          }
+        },
+        error: function (jqXHR, textStatus, errorThrown)  {
+          var msg = "* Could not find zipcode; " + errorThrown
+          console.log(msg);
+          $('#err_msg').text(msg);
+        }
+      });
+    });
+
+  });
+  
+
+</script>
+
+
+<h2>Weather Conditions</h2>
+
+<input type="text" id="zipcode" placeholder="Enter zip code"> <span style='padding-left: 5px;'><button id='get_zip'>Submit</button></span><span id='err_msg'></span>
+
+<div id='div_weather'>
+  <table id='forecast_table'>
+    <thead>
+        <tr><th>ID</th><th>Date Measured</th>  <th>ZipCode</th> <th>City Name</th>  <th>Country</th>  <th>Conditions</th>  <th>Description</th>  <th>Longitude</th>  <th>Latitude</th>   <th>Atmospheric Pressure</th>  <th>Temp °F</th>  <th>Wind Direction</th>  <th>Wind Speed</th>  <th>Humidity</th>  </tr>
+      <tbody>
+        
+        <% @forecasts.each do |f| %>
+            <tr>
+              <td><%= f.id %></td>
+              <td><%= Time.at(f.timestamp.to_i).utc %></td>
+              <td><%= f.zip_code %></td>
+              <td><%= f.city_name %></td>
+              <td><%= f.country %></td>
+              <td><%= f.conditions_main %></td>
+              <td><%= f.conditions_desc %></td>
+              <td><%= f.longitude %></td>
+              <td><%= f.latitude %></td>
+              <td><%= f.pressure %></td>
+              <td><%= kelvin_to_fahr(f.temp_k) %></td>
+              <td><%= wind_direction(f.wind_direction) %></td>
+              <td><%= f.wind_speed %></td>
+              <td><%= f.humidity %></td>  
+            </tr>
+        <% end %>
+        
+      </tbody>  
+    </thead>
+  </table>
+</div>

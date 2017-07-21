@@ -1,0 +1,14 @@
+
+boston:
+  zip_code: "02110"
+  longitude: -71.05
+  latitude: 42.36
+  city_name: "Boston"
+  country: "US"
+
+sacramento:
+  zip_code: "94203"
+  longitude: -121.49
+  latitude: 38.58
+  city_name: "Sacramento"
+  country: "US"

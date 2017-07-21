@@ -39,4 +39,8 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  config.weather_api_url = 'http://api.openweathermap.org/data/2.5/weather'  
+  config.weather_api_key = 'd5cdb7527439667dcd53c81cc62120e2'
+
 end

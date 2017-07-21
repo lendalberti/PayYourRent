@@ -51,4 +51,8 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  config.weather_api_url = 'http://api.openweathermap.org/data/2.5/weather'  
+  config.weather_api_key = 'd5cdb7527439667dcd53c81cc62120e2'
+
 end
