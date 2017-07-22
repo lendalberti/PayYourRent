@@ -5,10 +5,10 @@ require "net/http"
 class ApiControllerTest < ActionDispatch::IntegrationTest
 
   setup do
-    @api_url = Rails.configuration.weather_api_url
-    @api_key = Rails.configuration.weather_api_key
-    @location1  = forecasts(:boston)
-    @location2  = forecasts(:sacramento)
+    @api_url   = Rails.configuration.weather_api_url
+    @api_key   = Rails.configuration.weather_api_key
+    @location1 = forecasts(:boston)
+    @location2 = forecasts(:sacramento)
   end
 
 

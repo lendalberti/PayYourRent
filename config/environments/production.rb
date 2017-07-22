@@ -83,4 +83,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.weather_api_url = 'http://api.openweathermap.org/data/2.5/weather'  
+  config.weather_api_key = 'd5cdb7527439667dcd53c81cc62120e2'
+  
 end

@@ -1,3 +1,2 @@
 class Forecast < ApplicationRecord
-  
 end
