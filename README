@@ -11,8 +11,10 @@ README
         MySQL 5.7.17 ~~▶ GRANT ALL PRIVILEGES ON weather_test.* 
                                       TO 'weather'@'localhost' IDENTIFIED BY 'weather';
 
+
 2. Clone PayYourRent repository
   * git clone git@github.com:lendalberti/PayYourRent.git
+
 
 
 3. Run rake files
@@ -33,6 +35,7 @@ README
 4. Display database contents
 
     * rails s               # starts the server
-    * goto http://localhost:3000
+
+    * localhost:3000        # simple UI for single zipcode update and display
 
 
