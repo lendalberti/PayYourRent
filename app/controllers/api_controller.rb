@@ -7,7 +7,7 @@ class ApiController < ApplicationController
     if params['zip'].present? && valid_zip(params['zip'])
       zip_code = params['zip'].strip
       api_url = Rails.configuration.weather_api_url
-      api_key = Rails.configuration.weather_api_key
+      api_key = params['appid'].present? ? params['appid'] :  Rails.configuration.weather_api_key
 
       full_api_url = "#{api_url}?zip=#{zip_code}&appid=#{api_key}"
       response = Net::HTTP.get( URI.parse(full_api_url) )

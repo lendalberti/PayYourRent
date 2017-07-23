@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
   root 'forecast#index'
 
-  resources :forecast
-  resources :api
+  post '/api',     to: 'api#create',     as: :api_create
+  get '/forecast', to: 'forecast#index', as: :forecast_index
+
 end

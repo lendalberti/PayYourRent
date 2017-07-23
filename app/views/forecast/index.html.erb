@@ -10,7 +10,7 @@
       var zipCode = $('#zipcode').val();
 
       $.ajax({
-        url: "<%= api_index_url %>",
+        url: "<%= api_create_url %>",
         type: 'POST',
         dataType: 'json',
         data: { zip: zipCode },

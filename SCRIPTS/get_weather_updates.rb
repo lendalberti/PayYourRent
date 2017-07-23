@@ -5,25 +5,6 @@ require "byebug"
 
 require File.expand_path('../../config/environment', __FILE__)
 
-
-def save_weather_data(zip_code, w)
-  forecast = Forecast.new
-  forecast.zip_code        = zip_code
-  forecast.conditions_main = w['weather'][0]['main']
-  forecast.conditions_desc = w['weather'][0]['description']
-  forecast.longitude       = w['coord']['lon']
-  forecast.latitude        = w['coord']['lat']
-  forecast.city_name       = w['name']
-  forecast.country         = w['sys']['country']
-  forecast.pressure        = w['main']['pressure']
-  forecast.temp_k          = w['main']['temp']
-  forecast.wind_direction  = w['wind']['deg']
-  forecast.wind_speed      = w['wind']['speed']
-  forecast.humidity        = w['main']['humidity']
-  forecast.timestamp       = w['dt']
-  return forecast.save
-end
-      
 API_URL = Rails.configuration.weather_api_url
 API_KEY = Rails.configuration.weather_api_key
 
@@ -38,7 +19,7 @@ else
   response = JSON.parse(response) 
 
   if response['cod'] == 200 
-    results = save_weather_data( zip_code, response )
+    results = Forecast.save_weather_data( zip_code, response )
   else
     puts "Error; code=[#{response['cod']}], #{response['message']}"
   end
