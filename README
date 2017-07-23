@@ -35,6 +35,6 @@ README
 
 
 5. Display database contents using browser
-    * localhost:3000        # simple UI for single zipcode update and display
+    * open 'http://localhost:3000'        # simple UI for single zipcode update and display
 
 
