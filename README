@@ -1,20 +1,19 @@
 README
 
 1. Set up MySQL
- 
-    * log into MySQL as root; then execute the follwoing commands:
+    * mysql -uroot -p       # log into MySQL as root; then execute the follwoing commands:
 
-        MySQL 5.7.17 ~~▶ GRANT ALL PRIVILEGES ON weather_development.* 
+        * GRANT ALL PRIVILEGES ON weather_development.* 
                                       TO 'weather'@'localhost' IDENTIFIED BY 'weather';
-        MySQL 5.7.17 ~~▶ GRANT ALL PRIVILEGES ON weather_production.* 
+        * GRANT ALL PRIVILEGES ON weather_production.* 
                                       TO 'weather'@'localhost' IDENTIFIED BY 'weather';
-        MySQL 5.7.17 ~~▶ GRANT ALL PRIVILEGES ON weather_test.* 
+        * GRANT ALL PRIVILEGES ON weather_test.* 
                                       TO 'weather'@'localhost' IDENTIFIED BY 'weather';
 
 
 2. Clone PayYourRent repository
   * git clone git@github.com:lendalberti/PayYourRent.git
-
+  * cd PayYourRent
 
 
 3. Run rake files
@@ -31,11 +30,11 @@ README
     * rails cron:weather    # use cron and data in config/cron_zipcodes.yml 
                             # file to update 'forecasts' table
     
-
-4. Display database contents
-
+4. Start rails server
     * rails s               # starts the server
 
+
+5. Display database contents using browser
     * localhost:3000        # simple UI for single zipcode update and display
 
 
