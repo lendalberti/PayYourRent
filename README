@@ -4,20 +4,33 @@ README
  
     * log into MySQL as root; then execute the follwoing commands:
 
-        MySQL 5.7.17 ~~▶ GRANT ALL PRIVILEGES ON weather_development.* TO 'weather'@'localhost' IDENTIFIED BY 'weather'
-        MySQL 5.7.17 ~~▶ GRANT ALL PRIVILEGES ON weather_production.* TO  'weather'@'localhost' IDENTIFIED BY 'weather'
-        MySQL 5.7.17 ~~▶ GRANT ALL PRIVILEGES ON weather_test.* TO        'weather'@'localhost' IDENTIFIED BY 'weather'
+        MySQL 5.7.17 ~~▶ GRANT ALL PRIVILEGES ON weather_development.* 
+                                      TO 'weather'@'localhost' IDENTIFIED BY 'weather';
+        MySQL 5.7.17 ~~▶ GRANT ALL PRIVILEGES ON weather_production.* 
+                                      TO 'weather'@'localhost' IDENTIFIED BY 'weather';
+        MySQL 5.7.17 ~~▶ GRANT ALL PRIVILEGES ON weather_test.* 
+                                      TO 'weather'@'localhost' IDENTIFIED BY 'weather';
 
-2. Run rake files
+2. Clone PayYourRent repository
+  * git clone git@github.com:lendalberti/PayYourRent.git
 
-    * rails db:create:all   # create  development, test, and production databases (see config/databases.yml)
-    * rails db:migrate      # create "forecasts" table (see db/shema.rb)
-    * rails test            # run api controller test (see test/controllers/api_controller_test.rb)
 
-    * rails cron:weather    # use cron and data in config/cron_zipcodes.yml file to update 'forecasts' table
+3. Run rake files
+
+    * rails db:create:all   # create  development, test, and production databases 
+                            #       (see config/databases.yml)
+
+    * rails db:migrate      # create "forecasts" table 
+                            #       (see db/shema.rb)
+
+    * rails test            # run api controller test 
+                            #      (see test/controllers/api_controller_test.rb)
+
+    * rails cron:weather    # use cron and data in config/cron_zipcodes.yml 
+                            # file to update 'forecasts' table
     
 
-3. Display database contents
+4. Display database contents
 
     * rails s               # starts the server
     * goto http://localhost:3000
